@@ -1,0 +1,54 @@
+<div class="datum">{{ heute }}</div>
+<div class="logo">
+  <img src="assets/images/logo_white.svg" width="700px">
+</div>
+<table class="maintable">
+  <tr>
+    <td class="bezirk">{{ data?.bezirk }}</td>
+    <!-- <td></td> -->
+    <!-- <td class="einwohner">Einwohner: {{ einwohner }}</td> -->
+  </tr>
+</table>
+<table class="statistik">
+  <tr class="background1 bold darkblue">
+    <td width="25%" class="large">Bestand</td>
+    <td width="25%" class="larger tdright">{{ data?.untergebracht }}</td>
+    <td width="50%"><div appRefugeeGraphic [bestehend]="data?.untergebracht" [geplant]="0" [maxheight]="60"></div></td>
+  </tr>
+  <tr class="background1 bold blue">
+    <td class="large">in Planung</td>
+    <td class="larger tdright">{{ data?.geplant }}</td>
+    <td><div appRefugeeGraphic [bestehend]="0" [geplant]="data?.geplant" [maxheight]="60"></div></td>
+  </tr>
+  <tr class="background1 bold">
+    <td></td>
+    <td class="larger summe tdright">{{ summe1 }}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3"></td>
+  </tr>
+  <tr class="background1 bold lightblue">
+    <td class="large">in Prüfung</td>
+    <td class="larger tdright">{{ data?.vorgeschlagen }}</td>
+    <td><div appRefugeeGraphic [vorgeschlagen]="data?.vorgeschlagen" [heutevorgeschlagen]="0" [maxheight]="60"></div></td>
+  </tr>
+  <tr class="background1 bold lightblue">
+    <td class="large">heute vorgeschlagen</td>
+    <td class="larger tdright">{{ data?.heutevorgeschlagen }}</td>
+    <td><div appRefugeeGraphic [vorgeschlagen]="0" [heutevorgeschlagen]="data?.heutevorgeschlagen" [maxheight]="60"></div></td>
+  </tr>
+  <tr class="background1 bold">
+    <td></td>
+    <td class="larger summe tdright">{{ summe2 }}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3"></td>
+  </tr>
+  <tr class="background1 bold">
+    <td class="large ">Summe</td>
+    <td class="larger tdright">{{ summe3 }}</td>
+    <td><span appRefugeeGraphic [bestehend]="data?.untergebracht" [geplant]="data?.geplant" [maxheight]="60"></span><span appRefugeeGraphic [vorgeschlagen]="data?.vorgeschlagen" [heutevorgeschlagen]="data?.heutevorgeschlagen" [maxheight]="60"></span></td>
+  </tr>
+</table>

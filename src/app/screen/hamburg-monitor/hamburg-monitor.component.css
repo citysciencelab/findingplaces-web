@@ -1,0 +1,83 @@
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.statistik {
+  position: absolute;
+  top: 190px;
+  right: 50px;
+  z-index: 10;
+  width: 834px;
+}
+
+.tdright {
+  text-align: right;
+}
+
+.legende2 {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 20;
+}
+
+.legende2 td {
+  padding: 3px 10px;
+}
+
+.legende2 td:nth-child(even) {
+  padding: 3px 10px 3px 0;
+}
+
+.green {
+  color: #40af49;
+}
+
+.lightblue {
+  color: #00AEEF;
+}
+
+.darkblue {
+  color: #1B3281;
+}
+
+.text1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.text2 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.textbezirk {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.zahlbezirk {
+  font-weight: 700;
+  font-size: 28px;
+  text-align: right;
+}
+
+.largenumber {
+  font-size: 50px;
+  line-height: 75px;
+}
+
+.lastrow {
+  border-bottom: 1px solid black;
+}
+
+.refugeegraphic {
+  white-space: nowrap;
+}

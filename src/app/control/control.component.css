@@ -1,0 +1,66 @@
+.navbar {
+  height: 50px;
+  background-color: #222;
+  border-color: #080808;
+}
+
+.navbar .navbar-brand {
+  color: #9d9d9d;
+  font-size: 18px;
+}
+
+.container-primary {
+  padding-top: 50px;
+}
+
+.container-primary,
+.container-primary > div,
+.container-primary > div > div {
+  height: 100%;
+}
+
+.col-left {
+  padding-right: 0;
+}
+
+.col-right {
+  padding-left: 0;
+}
+
+.lightblue {
+  color: rgb(153, 204, 255);
+}
+
+.card-header a {
+  color: #333;
+}
+
+#baselayerswitcher {
+  list-style-type: none;
+}
+
+.absatz {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.absatz button {
+  font-size: 14px;
+}
+
+.tw33 {
+  width: 33%;
+}
+
+tr.active > td,
+tr.active > th,
+td.active,
+th.active {
+  background-color: #f5f5f5;
+}
+
+#collapseTwoLeft ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}

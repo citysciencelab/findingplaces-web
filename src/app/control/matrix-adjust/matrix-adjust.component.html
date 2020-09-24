@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <td><label>scaleX</label></td>
+    <td><input type="number" class="form-control" [value]="m[0][0]" step=".001" (change)="updateMatrix(0, 0, $event)" (mousewheel)="updateMatrix(0, 0, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>scaleY</label></td>
+    <td><input type="number" class="form-control" [value]="m[1][1]" step=".001" (change)="updateMatrix(1, 1, $event)" (mousewheel)="updateMatrix(1, 1, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>shearX</label></td>
+    <td><input type="number" class="form-control" [value]="m[1][0]" step=".001" (change)="updateMatrix(1, 0, $event)" (mousewheel)="updateMatrix(1, 0, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>shearY</label></td>
+    <td><input type="number" class="form-control" [value]="m[0][1]" step=".001" (change)="updateMatrix(0, 1, $event)" (mousewheel)="updateMatrix(0, 1, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>translateX</label></td>
+    <td><input type="number" class="form-control" [value]="m[3][0]" step="1" (change)="updateMatrix(3, 0, $event)" (mousewheel)="updateMatrix(3, 0, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>translateY</label></td>
+    <td><input type="number" class="form-control" [value]="m[3][1]" step="1" (change)="updateMatrix(3, 1, $event)" (mousewheel)="updateMatrix(3, 1, $event)" /></td>
+  </tr>
+  <tr>
+    <td><label>perspective</label></td>
+    <td><input type="number" class="form-control" [value]="m[0][3]" step=".00001" (change)="updateMatrix(0, 3, $event)" (mousewheel)="updateMatrix(0, 3, $event)" /></td>
+  </tr>
+</table>

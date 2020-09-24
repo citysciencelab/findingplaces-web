@@ -1,0 +1,93 @@
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.tdright {
+  text-align: right;
+}
+
+.lightblue {
+  color: #00AEEF;
+}
+
+.blue {
+  color: #007DC5;
+}
+
+.darkblue {
+  color: #1B3281;
+}
+
+.refugeegraphic {
+  white-space: nowrap;
+}
+
+.maintable {
+  margin-top: 60px;
+  margin-left: 76px;
+}
+
+.bezirk {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  color: #fff;
+  vertical-align: baseline;
+}
+
+.logo {
+  position: absolute;
+  right: 80px;
+  top: 73px;
+}
+
+.einwohner {
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  vertical-align: baseline;
+}
+
+.datum {
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.statistik {
+  position: absolute;
+  left: 80px;
+  top: 226px;
+  width: calc(100% - 160px);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.large {
+  font-size: 1.8em;
+  line-height: 1.8em;
+}
+
+.larger {
+  font-size: 60px;
+  line-height: 60px;
+}
+
+.summe {
+  border-top: 2px solid black;
+}
+
+.background1 {
+  background-color: #e6e7e8;
+}

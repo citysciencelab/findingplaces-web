@@ -1,0 +1,34 @@
+<table class="statistik" [class.d-none]="!bezirkszahlen.length">
+  <tr>
+    <td class="tdright"><div appRefugeeGraphic [unterzubringen]="unterzubringende" align="right"></div></td>
+    <td colspan="3" class="text1 green"><span class="largenumber">{{ unterzubringende }}</span><br>Flüchtlinge sind noch unterzubringen</td>
+  </tr>
+  <tr>
+    <td colspan="4"><!-- vertical spacing --></td>
+  </tr>
+  <tr *ngFor="let b of bezirkszahlen; index as i" [class.lastrow]="i === bezirkszahlen.length - 1">
+    <td class="tdright"><div appRefugeeGraphic [bestehend]="b.untergebracht" [geplant]="b.geplant" align="right"></div></td>
+    <td><div appRefugeeGraphic [vorgeschlagen]="b.vorgeschlagen" [heutevorgeschlagen]="b.heutevorgeschlagen"></div></td>
+    <td class="textbezirk">{{ b.bezirk }}</td>
+    <td class="zahlbezirk">{{ b.gesamt }}</td>
+  </tr>
+  <tr>
+    <td class="tdright text2 darkblue"><span class="largenumber">{{ bestandgeplant }}</span><br>Unterkunftsplätze<br>Bestand und in Planung</td>
+    <td colspan="3" class="text2 lightblue"><span class="largenumber">{{ vorgeschlagen }}</span><br>Unterkunftsplätze<br>durch Workshops vorgeschlagen</td>
+  </tr>
+  <tr>
+    <td class="tdright" colspan="4">{{ heute }}</td>
+  </tr>
+</table>
+<table class="legende2">
+  <tr>
+    <td><img src="assets/images/f_bestand.svg" height="60"></td>
+    <td>Unterkunftsplätze<br>Bestand für<br><b>1.000</b> Flüchtlinge</td>
+    <td><img src="assets/images/f_inplanung.svg" height="60"></td>
+    <td>Unterkunftsplätze<br>in Planung für<br><b>1.000</b> Flüchtlinge</td>
+    <td><img src="assets/images/f_inpruefung.svg" height="60"></td>
+    <td>Unterkunftsplätze<br>in Prüfung für<br><b>1.000</b> Flüchtlinge</td>
+    <td><img src="assets/images/f_heutevorgeschlagen.svg" height="60"></td>
+    <td>Heute vorgeschlagene<br>Unterkunftsplätze für<br><b>1.000</b> Flüchtlinge</td>
+  </tr>
+</table>

@@ -1,0 +1,19 @@
+<ul>
+  <li *ngFor="let layer of layers">
+    <label><input [type]="type" [checked]="layer.visible" (change)="onToggleLayer(layer)"/>&nbsp;{{ layer.displayName }}</label>
+    <!-- mighty FindingPlaces hack :D -->
+    <ng-container *ngIf="layer.name === 'bezirkeFilled'" class="nowrap">&nbsp;
+      <select (change)="auswahlBezirk($event.target.value)">
+        <option value="">bitte wählen</option>
+        <option value="Altona">Altona</option>
+        <option value="Bergedorf">Bergedorf</option>
+        <option value="Eimsbüttel">Eimsbüttel</option>
+        <option value="Hamburg-Mitte">Hamburg-Mitte</option>
+        <option value="Hamburg-Nord">Hamburg-Nord</option>
+        <option value="Harburg">Harburg</option>
+        <option value="Wandsbek">Wandsbek</option>
+      </select>
+    </ng-container>
+    <!-- end hack -->
+  </li>
+</ul>

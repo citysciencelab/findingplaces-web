@@ -1,0 +1,36 @@
+<div class="start-body">
+  <h1><b>C</b>ity<b>S</b>cience<b>L</b>ab@HCU</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Station 1</h2>
+        <ul>
+          <li><a [routerLink]="'control'" [queryParams]="{ station: 1 }">Control</a></li>
+          <li><a [routerLink]="'screen'" [queryParams]="{ station: 1 }">Leinwand</a></li>
+        </ul>
+        <h2>Station 2</h2>
+        <ul>
+          <li><a [routerLink]="'control'" [queryParams]="{ station: 2 }">Control</a></li>
+          <li><a [routerLink]="'projector'" [queryParams]="{ station: 2, side: 'left' }">Beamer (links)</a></li>
+          <li><a [routerLink]="'projector'" [queryParams]="{ station: 2, side: 'right' }">Beamer (rechts)</a></li>
+          <li><a [routerLink]="'screen'" [queryParams]="{ station: 2 }">Anzeige</a></li>
+        </ul>
+        <h2>Station 3</h2>
+        <ul>
+          <li><a [routerLink]="'control'" [queryParams]="{ station: 3 }">Control</a></li>
+          <li><a [routerLink]="'projector'" [queryParams]="{ station: 3, side: 'left' }">Beamer (links)</a></li>
+          <li><a [routerLink]="'projector'" [queryParams]="{ station: 3, side: 'right' }">Beamer (rechts)</a></li>
+          <li><a [routerLink]="'screen'" [queryParams]="{ station: 3 }">Anzeige</a></li>
+        </ul>
+        <h2>Workshops</h2>
+        <select (change)="onSelectWorkshop($event.target.value)">
+          <option>bitte wählen</option>
+          <option *ngFor="let ws of workshops; index as i" [value]="i">{{ ws.title }} ({{ ws.timestamp_start.toLocaleDateString() }})</option>
+        </select>
+      </div>
+      <div class="col-md-9">
+        <img src="assets/images/csl.png" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="container-fluid map-container">
+  <!-- Map -->
+  <div id="flurstueck_map">
+    <app-map inlineCSS="height: 100%;"></app-map>
+  </div>
+  <h1 class="flurstuecknr">Flurstück Nr. {{ fskShort }}</h1>
+  <div class="logo_">
+    <img src="assets/images/logo_white.svg" />
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7">
+      <!-- Infos -->
+      <div id="flurstueck_infos" class="lightbackground">
+        <ul class="eigenschaften">
+          <li><b>Flurstücksnummer</b>: {{ fs?.properties.fsk }}</li>
+          <li><b>Gemarkung</b>: {{ fs?.properties.gemarkung }}</li>
+          <!-- <li><b>Bezirk</b>: {{ fs?.properties.bezirk }}</li> -->
+          <li><b>Grundfläche</b>: {{ fs?.properties.flaeche }} m²</li>
+          <li><b>B-Plan</b>: {{ fs?.properties.bplan_name }}</li>
+          <li><b>Nutzungsart B-Plan</b>: {{ fs?.properties.bplan_na }}</li>
+          <!-- <li><b>B-Plan im Verfahren</b>: {{ fs?.properties.bplan_verf }}</li> -->
+          <li><b>Vermögensart</b>: {{ fs?.properties.vermoegen }}</li>
+          <li><b>Nicht von harten Merkmalen betroffene Restfläche</b>: {{ fs?.properties.restflae }} m²</li>
+          <li><b>Potenzielle Bewohneranzahl</b>: {{ fs?.properties.pot_bewohn }}</li>
+          <li><b>Merkmal</b>: {{ fs?.properties.merkmal }}</li>
+        </ul>
+        <hr class="dotted" />
+        <h2 class="flurstueck_infos">Harte Merkmale</h2>
+        <ul class="merkmale">
+          <li *ngIf="fs?.properties.proz_bahn"><b>Bahnverkehr</b>: {{ fs?.properties.proz_bahn }} %</li>
+          <li *ngIf="fs?.properties.proz_hag"><b>Hafengebiet</b>: {{ fs?.properties.proz_hag }} %</li>
+          <li *ngIf="fs?.properties.proz_flbi"><b>Flächenbiotop</b>: {{ fs?.properties.proz_flbi }} %</li>
+          <li *ngIf="fs?.properties.proz_klga"><b>Kleingarten</b>: {{ fs?.properties.proz_klga }} %</li>
+          <li *ngIf="fs?.properties.proz_wald"><b>Wald</b>: {{ fs?.properties.proz_wald }} %</li>
+          <li *ngIf="fs?.properties.proz_nats"><b>Naturschutzgebiet</b>: {{ fs?.properties.proz_nats }} %</li>
+          <li *ngIf="fs?.properties.proz_natd"><b>Naturdenkmal</b>: {{ fs?.properties.proz_natd }} %</li>
+          <li *ngIf="fs?.properties.proz_fh"><b>Friedhof</b>: {{ fs?.properties.proz_fh }} %</li>
+          <li *ngIf="fs?.properties.proz_gms"><b>Gehölz, Moor, Sumpf</b>: {{ fs?.properties.proz_gms }} %</li>
+          <li *ngIf="fs?.properties.proz_lsz1"><b>Lärmschutzzone 1</b>: {{ fs?.properties.proz_lsz1 }} %</li>
+          <li *ngIf="fs?.properties.proz_strl"><b>Straßenlärm</b>: {{ fs?.properties.proz_strl }} %</li>
+          <li *ngIf="fs?.properties.proz_bal"><b>Bahnlärm</b>: {{ fs?.properties.proz_bal }} %</li>
+          <li *ngIf="fs?.properties.proz_indu"><b>Industriegebiet</b>: {{ fs?.properties.proz_indu }} %</li>
+          <li *ngIf="fs?.properties.proz_gew1"><b>Gewässer 1. Ordnung</b>: {{ fs?.properties.proz_gew1 }} %</li>
+          <li *ngIf="fs?.properties.proz_gew2"><b>Gewässer 2. Ordnung</b>: {{ fs?.properties.proz_gew2 }} %</li>
+          <li *ngIf="fs?.properties.proz_strw"><b>Straße, Wege</b>: {{ fs?.properties.proz_strw }} %</li>
+          <li *ngIf="fs?.properties.proz_bebau"><b>Bebauung</b>: {{ fs?.properties.proz_bebau }} %</li>
+          <li *ngIf="fs?.properties.proz_woba"><b>Geplanter Wohnungsbau</b>: {{ fs?.properties.proz_woba }} %</li>
+          <li *ngIf="fs?.properties.proz_ausgl"><b>Naturschutzgebiet Ausgleichsflächen</b>: {{ fs?.properties.proz_ausgl }} %</li>
+          <li *ngIf="fs?.properties.hart_proz"><b>Von harten Merkmalen betroffener Flächenanteil</b>: {{ fs?.properties.hart_proz }} %</li>
+          <!-- <li>Keine harten Merkmale bekannt</li> -->
+        </ul>
+        <h2 class="flurstueck_infos">Weiche Merkmale</h2>
+        <ul class="merkmale">
+          <li *ngIf="fs?.properties.proz_uebg"><b>Überschwemmungsgebiet</b>: {{ fs?.properties.proz_uebg }} %</li>
+          <li *ngIf="fs?.properties.proz_lans"><b>Landschaftsschutzgebiet</b>: {{ fs?.properties.proz_lans }} %</li>
+          <li *ngIf="fs?.properties.proz_bplw"><b>Gewerbe, Geschäftsgebiet, Außenbereich, Kerngebiet, ohne gelt. B-Plan (eins zutreffend)</b>: {{ fs?.properties.proz_bplw }} %</li>
+          <li *ngIf="fs?.properties.proz_fl"><b>Freileitung</b>: {{ fs?.properties.proz_fl }} %</li>
+          <li *ngIf="fs?.properties.proz_sfe"><b>Sport, Freizeit, Erholung</b>: {{ fs?.properties.proz_sfe }} %</li>
+          <li *ngIf="fs?.properties.proz_park"><b>Park</b>: {{ fs?.properties.proz_park }} %</li>
+          <li *ngIf="fs?.properties.proz_stfl"><b>Sturmflutgebiet</b>: {{ fs?.properties.proz_stfl }}</li>
+          <li *ngIf="fs?.properties.weich_proz"><b>Von weichen Merkmalen betroffener Flächenanteil</b>: {{ fs?.properties.weich_proz }} %</li>
+          <!-- <li>Keine weichen Merkmale bekannt</li> -->
+        </ul>
+        <h2 class="flurstueck_infos">Weitere Informationen</h2>
+        <ul class="informationen">
+          <li *ngIf="fs?.properties.att_flbi"><b>Flächenbiotop Bezeichnung</b>: {{ fs?.properties.att_flbi }}</li>
+          <li *ngIf="fs?.properties.para_flbi"><b>Flächenbiotop Paragraph</b>: {{ fs?.properties.para_flbi }}</li>
+          <li *ngIf="fs?.properties.att_nats"><b>Naturschutzgebiet Bezeichnung</b>: {{ fs?.properties.att_nats }}</li>
+          <li *ngIf="fs?.properties.att_natd"><b>Naturdenkmal Bezeichnung</b>: {{ fs?.properties.att_natd }}</li>
+          <li *ngIf="fs?.properties.att_indu"><b>Industriegebiet Bezeichnung</b>: {{ fs?.properties.att_indu }}</li>
+          <li *ngIf="fs?.properties.gebun_stat"><b>Anhandgabe LIG Status</b>: {{ fs?.properties.gebun_stat }}</li>
+          <li *ngIf="fs?.properties.gebun_beme"><b>Anhandgabe Bemerkung</b>: {{ fs?.properties.gebun_beme }}</li>
+          <li *ngIf="fs?.properties.att_lans"><b>Landschaftsschutzgebiet Bezeichnung</b>: {{ fs?.properties.att_lans }}</li>
+          <li *ngIf="fs?.properties.att_biot"><b>Punkt-/Linienbiotop Attribut</b>: {{ fs?.properties.att_biot }}</li>
+          <li *ngIf="fs?.properties.para_biot"><b>Punkt-/Linienbiotop Paragraph</b>: {{ fs?.properties.para_biot }}</li>
+          <li *ngIf="fs?.properties.att_park"><b>Park Attribut</b>: {{ fs?.properties.att_park }}</li>
+          <li *ngIf="fs?.properties.bez_park"><b>Park Bezeichnung</b>: {{ fs?.properties.bez_park }}</li>
+          <li *ngIf="fs?.properties.zusatz"><b>Sonstiges</b>: {{ fs?.properties.zusatz }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <!-- Comments -->
+      <div id="flurstueck_comments" class="lightbackground">
+        <h2>Vorschläge</h2>
+        <div *ngFor="let c of comments" class="comment_container">
+          <div class="comment status{{ c.properties.status }}" [class.nonreply]="!c.properties.reply_to" [class.reply]="c.properties.reply_to">
+            <div class="comment_header">#{{ c.properties.id }} - - {{ c.properties.timestamp }}</div>
+            <div class="comment_text">{{ c.properties.text }}</div>
+          </div>
+          <div class='comment_links'><a href="#">Antworten</a> &bull; <a href="#">Bearbeiten</a> &bull; <a href="#">Löschen</a></div>
+        </div>
+        Kein <a href="#">Workshop</a> aktiv, daher kein Kommentieren möglich
+      </div>
+    </div>
+  </div>
+</div>

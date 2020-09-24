@@ -1,0 +1,148 @@
+<nav class="navbar fixed-top">
+  <div class="navbar-header">
+    <span class="navbar-brand"><b class="lightblue">C</b>ity<b class="lightblue">S</b>cience<b class="lightblue">L</b>ab@HCU</span>
+  </div>
+</nav>
+
+<div class="container-fluid container-primary">
+  <div class="row">
+    <div class="col-left col-md-2">
+      <!-- Base-Layer -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseOneLeft" role="button">Base-Layer</a>
+        </div>
+        <div id="collapseOneLeft" class="card-body collapse show">
+          <app-layer-switcher [layers]="config.baseLayers" type="radio"></app-layer-switcher>
+        </div>
+      </div>
+      <!-- FindingPlaces -->
+      <div class="card mt-3">
+        <div class="card-header">
+            <a data-toggle="collapse" href="#collapseTwoLeft" role="button">FindingPlaces</a>
+        </div>
+        <div id="collapseTwoLeft" class="card-body collapse show">
+          <app-layer-switcher [layers]="config.topicLayers" type="checkbox" (change)="onLayerChange()" (selectBezirk)="onSelectBezirk($event)"></app-layer-switcher>
+          <hr>
+          <ul *ngIf="station === '1'" class="layer-switcher-extra">
+            <li>
+              <label><input type="checkbox" (change)="onToggleStats()"/>&nbsp;Statistik</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div [class.col-md-8]="!config.singleDesk" [class.col-md-10]="config.singleDesk">
+      <div *ngIf="station === '1'" class="mt-3">
+        <h1>Ablauf Leinwand</h1>
+        <ol>
+          <li>Stadtteilgrenzen</li>
+          <li><i>Stadtteilgrenzen ausblenden<br>&nbsp;</i></li>
+          <li>bestehende Unterkünfte</li>
+          <li>geplante Unterkünfte</li>
+          <li><i>Unterkünfte ausblenden</i><br>&nbsp;</li>
+          <li>alle Potentialflächen</li>
+          <li><i>Potentialflächen ausblenden</i><br>&nbsp;</li>
+          <li>hoher Einschränkungsgrad</li>
+          <li>mittlerer Einschränkungsgrad</li>
+          <li>geringer Einschränkungsgrad<br>&nbsp;</li>
+          <li>Statistik</li>
+        </ol>
+      </div>
+      <!-- MapComponent. Emits mapMove events for the ProjectorComponents -->
+      <app-map (mapMove)="onMapMove($event)" (pointerMove)="onPointerMove($event)" (changeResolution)="onChangeResolution($event)" [class.d-none]="station === '1'" inlineCSS="height: 100%;"></app-map>
+    </div>
+    <div *ngIf="station !== '1' && !config.singleDesk" class="col-right col-md-2">
+      <!-- Informationen -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseOneRight" role="button">Informationen</a>
+        </div>
+        <div id="collapseOneRight" class="card-body collapse">
+          <table class="table">
+            <tr>
+              <td class="tw33"><span data-toggle="tooltip" title="EPSG:4326">Lat./Lon.:</span></td>
+              <td id="mouseCoord1" class="active">{{ mouseCoord1 }}</td>
+            </tr>
+            <tr>
+              <td><span data-toggle="tooltip" title="EPSG:3857">x, y:</span></td>
+              <td id="mouseCoord2" class="active">{{ mouseCoord2 }}</td>
+            </tr>
+            <tr>
+              <td>Zoom:</td>
+              <td id="zoom" class="active">{{ zoomStr }}</td>
+            </tr>
+            <tr>
+              <td>Scale:</td>
+              <td id="scale" class="active">{{ scaleStr }}</td>
+            </tr>
+            <tr>
+              <td>Resolution:</td>
+              <td id="resolution" class="active">{{ resolutionStr }}</td>
+            </tr>
+            <tr>
+              <td><span data-toggle="tooltip" title="EPSG:25832">BBOX:</span></td>
+              <td id="bbox" class="active">{{ bboxStr }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Events -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseTwoRight" role="button">Events</a>
+        </div>
+        <div id="collapseTwoRight" class="card-body collapse show">
+          <!-- <button id="init-tv" type="button" class="btn btn-info btn-block btn-sm">Init TV</button> -->
+          <button id="send-bbox" type="button" class="btn btn-warning btn-block btn-sm"><span class="fa fa-paper-plane-o"></span> Send BBOX</button>
+          <button id="update" type="button" class="btn btn-info btn-block btn-sm"><span class="fa fa-refresh"></span> Update</button>
+          <button *ngIf="station === '3'" id="pause" type="button" class="btn btn-danger btn-block btn-sm"><span class="fa fa-pause"></span> Pause</button>
+          <button *ngIf="station === '3'" id="unpause" type="button" class="btn btn-success btn-block btn-sm"><span class="fa fa-play-circle"></span> Unpause</button>
+        </div>
+      </div>
+      <!-- Suchräume -->
+      <div *ngIf="station === '2'" class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseThreeRight" role="button">Suchräume</a>
+        </div>
+        <div id="collapseThreeRight" class="card-body collapse">
+          <div class="absatz">
+            <button id="sr-load" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Load"><span class="fa fa-upload"></span></button>
+            <button id="sr-save" type="button" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Save"><span class="fa fa-download"></span></button>
+            <button id="sr-add" type="button" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Add"><span class="fa fa-plus"></span></button>
+            <button id="sr-remove" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Remove"><span class="fa fa-minus"></span></button>
+            <button id="sr-send" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Send"><span class="fa fa-paper-plane-o"></span></button>
+          </div>
+          <select id="suchraum" class="form-control" size="5"></select>
+        </div>
+      </div>
+      <!-- Suche -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseFourRight" role="button">Suche</a>
+        </div>
+        <div id="collapseFourRight" class="card-body collapse">
+          <div class="form-group">
+            <label for="inputName">Adresse:</label>
+            <input id="addr" type="text" class="form-control" placeholder="Adresse eingeben ..." />
+          </div>
+          <button id="nominatim-search" type="button" class="btn btn-primary"><span class="fa fa-search"></span> Suche</button>
+          <button id="nominatim-remove" type="button" class="btn btn-danger"><span class="fa fa-remove"></span></button>
+          <div id="results"></div>
+        </div>
+      </div>
+      <!-- Beamer-Einstellung -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <a data-toggle="collapse" href="#collapseFiveRight" role="button">Beamer-Einstellung</a>
+        </div>
+        <div id="collapseFiveRight" class="card-body collapse">
+          <div class="row">Links</div>
+          <app-matrix-adjust *ngIf="m" [m]="m.left" (update)="updateMatrix('left', $event)"></app-matrix-adjust>
+          <div class="row">Rechts</div>
+          <app-matrix-adjust *ngIf="m" [m]="m.right" (update)="updateMatrix('right', $event)"></app-matrix-adjust>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

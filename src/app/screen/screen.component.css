@@ -1,0 +1,63 @@
+.fullscreen {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background0 {
+  background-color: black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.legende1a {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 20;
+}
+
+.legende1a td {
+  padding: 3px 20px 3px 0;
+}
+
+.legende1b {
+  position: absolute;
+  left: 320px;
+  top: 50px;
+  z-index: 20;
+}
+
+.legende1b td {
+  padding: 3px 20px 3px 0;
+}
+
+.map {
+  height: 1180px;
+  width: 1200px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+
+.intro {
+  position: absolute;
+  left: 1250px;
+  top: 350px;
+  z-index: 50;
+  width: 600px;
+  height: 300px;
+}

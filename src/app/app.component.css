@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Prokyon';
+  font-weight: 400;
+  src: url('assets/fonts/DTL-Prokyon-ST_14660.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Prokyon';
+  font-weight: 600;
+  src: url('assets/fonts/DTL-Prokyon-ST-Medium_14659.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Prokyon';
+  font-weight: 700;
+  src: url('assets/fonts/DTL-Prokyon-ST-Bold_14654.ttf') format('truetype');
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+}
+
+app-screen {
+  font-family: 'Prokyon';
+}

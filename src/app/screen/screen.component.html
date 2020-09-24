@@ -1,0 +1,59 @@
+<div [ngSwitch]="station" class="fullscreen" [class.background0]="station === '2'">
+  <ng-container *ngSwitchCase="1">
+    <app-map [side]="side" inlineCSS="height: 100%; width: 1200px; position: absolute; left: 0; top: 0; background-color: white;"></app-map>
+    <div class="intro" [class.d-none]="showStats"><img src="assets/images/findingplaces.png" alt=""></div>
+    <table class="legende1a">
+      <tr *ngIf="legende1aShowGelb">
+        <td><img src="assets/images/e_gering.svg" width="32"></td>
+        <td>Flächen mit <b>geringem</b><br>Einschränkungsgrad</td>
+      </tr>
+      <tr *ngIf="legende1aShowOrange">
+        <td><img src="assets/images/e_mittel.svg" width="32"></td>
+        <td>Flächen mit <b>mittlerem</b><br>Einschränkungsgrad</td>
+      </tr>
+      <tr *ngIf="legende1aShowRot">
+        <td><img src="assets/images/e_hoch.svg" width="32"></td>
+        <td>Flächen mit <b>hohem</b><br>Einschränkungsgrad</td>
+      </tr>
+      <tr *ngIf="legende1aShowAlle">
+        <td><img src="assets/images/e_allepotflaechen.svg" width="32"></td>
+        <td>Alle Potentialflächen</td>
+      </tr>
+      <tr *ngIf="legende1aShowAlle">
+        <td><img src="assets/images/e_ausschlussflaeche.svg" width="32"></td>
+        <td>Ausschlussflächen</td>
+      </tr>
+      <tr *ngIf="legende1aShowAbgelehnt">
+        <td><img src="assets/images/e_abgelehntflaechen.svg" width="32"></td>
+        <td>Abgelehnt durch ZKF</td>
+      </tr>
+    </table>
+    <table class="legende1b">
+      <tr *ngIf="legende1bShowBestehende">
+        <td><img src="assets/images/u_bestand_ohne_zahl.svg" width="32"></td>
+        <td>Bestehende Unterkünfte</td>
+      </tr>
+      <tr *ngIf="legende1bShowGeplante">
+        <td><img src="assets/images/u_inplanung_ohne_zahl.svg" width="32"></td>
+        <td>Unterkünfte in Planung</td>
+      </tr>
+      <tr *ngIf="legende1bShowVorgeschlagene">
+        <td><img src="assets/images/u_inpruefung_ohne_zahl.svg" width="32"></td>
+        <td>Unterkünfte in Prüfung</td>
+      </tr>
+      <tr *ngIf="legende1bShowVorgeschlagene">
+        <td><img src="assets/images/u_heutevorgeschlagen_ohne_zahl.svg" width="32"></td>
+        <td>Heute vorgeschlagene Unterkünfte</td>
+      </tr>
+    </table>
+    <app-hamburg-monitor [data]="monitorData" [heute]="datum" [class.d-none]="!showStats"></app-hamburg-monitor>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <app-bezirk-monitor [data]="workshopData" [heute]="datum"></app-bezirk-monitor>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <app-flurstueck-monitor [fsk]="flurstueck"></app-flurstueck-monitor>
+  </ng-container>
+</div>
